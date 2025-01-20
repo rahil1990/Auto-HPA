@@ -1,0 +1,5 @@
+CONTROLLER_NAME = "auto-hpa-controller"
+HPA_CONFIG_MAP_NAME = "hpa-config"
+MANAGED_BY_LABEL = "managed-by"
+MANAGED_BY_VALUE = CONTROLLER_NAME
+AUTO_HPA_ANNOTATION = "auto_hpa"
