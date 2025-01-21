@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auto-hpa-controller
+  namespace: kube-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auto-hpa-controller
+  template:
+    metadata:
+      labels:
+        app: auto-hpa-controller
+    spec:
+      serviceAccountName: auto-hpa-controller
+      containers:
+      - name: controller
+        image: raheloo/auto-hpa:v1
+        imagePullPolicy: Always

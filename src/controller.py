@@ -198,7 +198,7 @@ def on_workload_delete(spec, name, namespace, **kwargs):
             logging.error(f"Error deleting HPA {name}: {str(e)}")
             raise e
 
-@kopf.timer('', 'v1', 'configmaps', interval=60.0)
+@kopf.timer('', 'v1', 'configmaps', interval=300.0)
 def on_configmap_timer(spec, name, namespace, **kwargs):
     """Periodically check and update HPAs based on ConfigMap changes"""
     if name != HPA_CONFIG_MAP_NAME:
