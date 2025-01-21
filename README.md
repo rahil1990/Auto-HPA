@@ -20,7 +20,11 @@ A Kubernetes operator that automatically manages Horizontal Pod Autoscaling (HPA
 - `kubectl` configured with cluster access
 - Cluster admin privileges for operator deployment
 
-## Installation
+##Direct Installation
+
+
+
+##Installation
 
 1. Clone the repository:
 ```bash
