@@ -24,7 +24,7 @@ A Kubernetes operator that automatically manages Horizontal Pod Autoscaling (HPA
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/auto-hpa-controller.git
+git clone https://github.com/rahil1990/Auto-HPA.git
 cd auto-hpa-controller
 ```
 
