@@ -163,7 +163,7 @@ There are two ways to have auto-hpa manage an existing HPA:
      kubectl delete hpa my-hpa-name -n my-namespace
      ```
    - Ensure your namespace has the `auto_hpa: "true"` annotation
-   - Wait for 5 seconds, and auto-hpa will create a new HPA based on your namespace's `hpa-config` ConfigMap
+   - Wait for 5 minutes, and auto-hpa will create a new HPA based on your namespace's `hpa-config` ConfigMap
    - If you need specific settings, modify them in the namespace's `hpa-config` ConfigMap before deleting the existing HPA
 
 2. **Method 2: Add management label**
