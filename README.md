@@ -149,6 +149,31 @@ Common issues and solutions:
    - Check for any error messages
 
 
+## FAQ
+
+### Q: Does auto-hpa manage all HPAs in the enabled namespace?
+No, auto-hpa only manages HPAs that it has created. It will not modify or delete any pre-existing HPAs or HPAs that were manually created. This ensures that custom HPA configurations are respected and preserved. You can identify auto-hpa managed HPAs by looking for the `managed-by: auto-hpa-controller` label.
+
+### Q: How can I make auto-hpa manage my existing HPA?
+There are two ways to have auto-hpa manage an existing HPA:
+
+1. **Method 1: Delete and recreate**
+   - Delete your existing HPA:
+     ```bash
+     kubectl delete hpa my-hpa-name -n my-namespace
+     ```
+   - Ensure your namespace has the `auto_hpa: "true"` annotation
+   - Wait for 5 seconds, and auto-hpa will create a new HPA based on your namespace's `hpa-config` ConfigMap
+   - If you need specific settings, modify them in the namespace's `hpa-config` ConfigMap before deleting the existing HPA
+
+2. **Method 2: Add management label**
+   - Add the `managed-by: auto-hpa-controller` label to your existing HPA:
+     ```bash
+     kubectl label hpa my-hpa-name -n my-namespace managed-by=auto-hpa-controller
+     ```
+   - The controller will detect the label and start managing the HPA according to your namespace's `hpa-config` ConfigMap
+   - Also not any custom metrics or external metrics configured on HPA may be removed as auto-hpa support only cpu and memory metrics
+
 
 ## License
 
