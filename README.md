@@ -24,7 +24,7 @@ A Kubernetes operator that automatically manages Horizontal Pod Autoscaling (HPA
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/auto-hpa-controller.git
+git clone https://github.com/rahil1990/Auto-HPA.git
 cd auto-hpa-controller
 ```
 
@@ -86,14 +86,9 @@ data:
 
 3. **Configuration Management**: 
    - Reads HPA settings from the `hpa-config` ConfigMap
-   - Applies default values if not specified:
-     - min_replicas: 1
-     - max_replicas: 10
-     - cpu_average: 50%
-     - memory_average: 50%
 
 4. **Continuous Updates**: 
-   - Monitors ConfigMap changes every 60 seconds
+   - Monitors ConfigMap changes every 5 minutes
    - Updates managed HPAs to reflect configuration changes
    - Handles workload updates and deletions
 
@@ -147,13 +142,7 @@ Common issues and solutions:
    - Verify controller logs
    - Check for any error messages
 
-## Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
 
 ## License
 
