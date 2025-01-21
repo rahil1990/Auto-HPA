@@ -21,10 +21,12 @@ A Kubernetes operator that automatically manages Horizontal Pod Autoscaling (HPA
 - Cluster admin privileges for operator deployment
 
 ## Direct Installation
+```bash
+kubectl apply -f https://raw.githubusercontent.com/rahil1990/Auto-HPA/refs/heads/master/deploy/rbac.yaml
 
-
-
-## Installation
+kubectl apply -f https://raw.githubusercontent.com/rahil1990/Auto-HPA/refs/heads/master/deploy/deployment.yaml 
+```
+## Docker Build
 
 1. Clone the repository:
 ```bash
